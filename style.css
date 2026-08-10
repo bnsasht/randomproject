@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+}
+
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: #4a90d9;
+  top: 10%;
+  left: 10%;
+  animation: float1 12s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 350px;
+  height: 350px;
+  background: #7c5cbf;
+  bottom: 10%;
+  right: 10%;
+  animation: float2 15s ease-in-out infinite;
+}
+
+.blob3 {
+  width: 250px;
+  height: 250px;
+  background: #3ba89f;
+  top: 50%;
+  left: 60%;
+  animation: float3 18s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 60px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, -30px); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, 50px); }
+}
+
+#container {
+  position: relative;
+  background: rgba(30, 34, 54, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 35px;
+  border-radius: 24px;
+  width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.25),
+    0 30px 60px rgba(74, 144, 217, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+#container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #4a90d9, #7c5cbf, #3ba89f);
+  border-radius: 26px;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.4;
+}
+
+h1 {
+  text-align: center;
+  color: #e8eaf0;
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+#inputRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8eaf0;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#taskInput::placeholder {
+  color: rgba(232, 234, 240, 0.4);
+}
+
+#taskInput:focus {
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#addButton {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4a90d9, #7c5cbf);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(74, 144, 217, 0.4);
+}
+
+#addButton:active {
+  transform: translateY(0);
+}
+
+#tasklist {
+  list-style: none;
+  margin-top: 20px;
+}
+
+#tasklist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#tasklist li span {
+  color: #e8eaf0;
+}
+
+#tasklist li:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+#tasklist li.done span {
+  text-decoration: line-through;
+  color: rgba(232, 234, 240, 0.4);
+}
+
+#tasklist li button {
+  border: none;
+  background-color: rgba(255, 100, 130, 0.15);
+  color: #ff8fa3;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}
+
+#tasklist li button:hover {
+  background-color: rgba(255, 100, 130, 0.3);
+}
